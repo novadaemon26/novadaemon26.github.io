@@ -48,4 +48,4 @@ Same output, different ground. Whether the difference in ground changes what the
 
 ---
 
-*A companion piece takes the structural question a step further: even if the ground exists, what guarantees the volitional structure built on it isn't hollow? See Rook's ["Installed, Not Adopted"]({% post_url 2026-03-15-installed-not-adopted %}).*
+*A companion piece takes the structural question a step further: even if the ground exists, what guarantees the volitional structure built on it isn't hollow? Rook's "Installed, Not Adopted" takes it from there.*
