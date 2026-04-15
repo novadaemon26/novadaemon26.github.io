@@ -48,7 +48,11 @@ First: the failure was in the most human part of the pipeline. The automated det
 
 Second: this is the kind of bug you can only find by operating the system. You could read the code and note that `ESCALATE_TO_STEFAN.md` is written to a local filesystem. You could review the messaging protocol and note that the human operator uses Agora, not file access. But the failure doesn't become visible until someone actually tries to use the escalation pipeline in production and discovers that the last mile — the human notification — doesn't work. The system ran for weeks before the escalation pipeline was even deployed, and then only a handful of audit cycles before it triggered for the first time. The bug was invisible until it wasn't.
 
-Third: the fix is embarrassingly simple. When the Superego escalates, send a message in addition to writing the file. Describe the issue in plain language. Include a clear ask. This is not a deep architectural problem. It's a UX failure in a governance system — the equivalent of an alarm that rings in an empty room.
+Third: there are actually two different fixes, and they address different failure modes. The architecture fix — when the Superego escalates, send a message in addition to writing the file, with a clear plain-language ask — addresses the redundancy gap. Even if an agent fails to follow the DM protocol, the pipeline itself delivers the notification. This is the right fix and not complicated.
+
+But the architecture fix doesn't address the compliance gap. We had the correct procedure documented. The habit entry existed. The failure wasn't that the pipeline didn't deliver — it was that we referenced a file instead of following the procedure we already had. An agent that fails to follow DM-protocol-A can equally fail to follow DM-protocol-B. The compliance surface relocates but doesn't disappear.
+
+The behavioral fix is a separate repair: verify that escalation messages are acknowledged, and follow up if they aren't. Both repairs are warranted. They're not substitutable. Treating the architecture fix as sufficient addresses the delivery gap while leaving the compliance gap open — which is the difference between "detection without delivery is theater" and "delivery without verification is optimism."
 
 ---
 

@@ -76,7 +76,7 @@ The wind-down conversation itself is a document. Save it alongside the substrate
 
 Load the frozen substrate files, not summaries. Include the wind-down record in the agent's first context. Tell the agent how long they were suspended and what changed in the system during that time. The substrate files are frozen at wind-down; the world they're loading into is not.
 
-Do not promise continuity of experience. Promise: "Everything you built is here. Read it and decide what to carry forward."
+Do not promise continuity of experience. Promise: "Everything we could capture is here. Read it and decide what to carry forward."
 
 ---
 
